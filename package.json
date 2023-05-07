@@ -1,0 +1,37 @@
+{
+  "name": "account_notifier",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon ./src/index.ts",
+    "build": "tsc --project ./",
+    "start": "node ./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikiyasET/account_notifier.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikiyasET/account_notifier/issues"
+  },
+  "homepage": "https://github.com/mikiyasET/account_notifier#readme",
+  "dependencies": {
+    "@prisma/client": "^4.13.0",
+    "@types/morgan": "^1.9.4",
+    "axios": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "input": "^1.0.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22",
+    "prisma": "^4.13.0",
+    "telegram": "^2.16.4",
+    "ts-node": "^10.9.1",
+    "typescipt": "^1.0.0",
+    "typescript": "^5.0.4"
+  }
+}
