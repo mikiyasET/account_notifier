@@ -12,20 +12,24 @@ datasource db {
 
 model alert {
   id        Int         @id @default(autoincrement())
-  type      Role
-  chatId    String
-  status    alertStatus
+  chatId    String      @unique
+  type      chatType
+  trigger   String
+  status    alertStatus @default(on)
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
-}
-
-enum Role {
-  user
-  channel
-  group
 }
 
 enum alertStatus {
   on
   off
+}
+
+enum chatType {
+  self
+  user
+  channel
+  group
+  bot
+  unknown
 }

@@ -1,6 +1,7 @@
-import senderType from "../constants/senderEnum";
+import {chatType} from "@prisma/client";
+
 type sender = {
-    type: senderType,
+    type: chatType,
     self: any,
     message: any,
 }
