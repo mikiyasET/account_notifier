@@ -173,7 +173,7 @@ const isMe = (id: any) => {
 const createAlert = async ({chatId, type, trigger}: { chatId: string, type: chatType, trigger: string }) => {
     trigger = trigger.trim().length == 0 ? "any" : trigger;
     const alert = await AlertController.addAlert({chatId: chatId, chatType: type, trigger: trigger});
-    const message = `<b>🟢 New Alert Added 🟢</b>\n\nId: <code>${alert.id}</code>\nChat: <code>${chatId}</code>\nTrigger: <code>${trigger}\nChat Type: <code>${type}</code>`;
+    const message = `<b>🟢 New Alert Added 🟢</b>\n\nId: <code>${alert.id}</code>\nChat: <code>${chatId}</code>\nTrigger: <code>${trigger}</code>\nChat Type: <code>${type}</code>`;
     await client.sendMessage('me', {message: message, parseMode: "html"});
 }
 const pauseAlert = async ({id}: { id: string }) => {
@@ -182,7 +182,6 @@ const pauseAlert = async ({id}: { id: string }) => {
     const message = `<b>🔴 Alert Paused 🔴</b>\n\nId: <code>${alert.id}</code>\nChat: <code>${alert.chatId}</code>\nTrigger: <code>${alert.trigger}\nChat Type: <code>${alert.type}</code>`;
     await client.sendMessage('me', {message: message, parseMode: "html"});
 }
-
 const sendAlert = async ({chatId, trigger, message}:any)=> {
     await sendSMS({
         chatId: chatId,
