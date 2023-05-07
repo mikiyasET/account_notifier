@@ -191,7 +191,7 @@ const sendAlert = async ({chatId, trigger, message}:any)=> {
 }
 const sendSMS = async ({chatId,trigger, message}: { chatId: string,trigger:string, message:string }) => {
     await axios.post(`${process.env.SMS_GATEWAY}/send`, {
-        to: '0941398934',
+        to: process.env.PHONE_NUMBER,
         message: `${chatId},${trigger},${message}`,
         template_id: 'reminder',
         token: process.env.SMS_TOKEN

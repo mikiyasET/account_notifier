@@ -27,6 +27,7 @@ PORT=3000
 ALERT_COMMAND=addalert
 SMS_GATEWAY=https://sms.yegara.com/api
 SMS_TOKEN=YEGARA_SMS_TOKEN
+PHONE_NUMBER=0912345678
 DATABASE_URL="postgresql://m2:randompassword@localhost:5432/telegram_notifier?schema=public"
 ```
 
