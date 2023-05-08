@@ -102,6 +102,7 @@ class AlertController {
                 },
                 data: {
                     trigger: alert.trigger,
+                    status: alertStatus.on
                 }
             });
         }

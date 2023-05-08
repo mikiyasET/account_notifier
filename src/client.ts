@@ -23,8 +23,8 @@ let prisma = new PrismaClient();
         phoneCode: async () => await input.text("Please enter the code you received: "),
         onError: (err: any) => console.log(err),
     });
-    await client.invoke(new Api.auth.LogOut());
-    // self = await client.getMe();
+    // await client.invoke(new Api.auth.LogOut()); // uncomment this line to logout
+    self = await client.getMe();
     console.log(client.session.save()); // -> copy session string to the StringSession("PASTE COPIED STRING HERE") on the session variable above ++++++ IMPORTANT ++++++
     console.log("Connected!");
 })();

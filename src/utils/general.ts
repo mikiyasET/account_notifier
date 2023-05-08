@@ -182,17 +182,17 @@ const pauseAlert = async ({id}: { id: string }) => {
     const message = `<b>🔴 Alert Paused 🔴</b>\n\nId: <code>${alert.id}</code>\nChat: <code>${alert.chatId}</code>\nTrigger: <code>${alert.trigger}\nChat Type: <code>${alert.type}</code>`;
     await client.sendMessage('me', {message: message, parseMode: "html"});
 }
-const sendAlert = async ({chatId, trigger, message}:any)=> {
+const sendAlert = async ({name, trigger, message}:any)=> {
     await sendSMS({
-        chatId: chatId,
+        name: name,
         trigger: trigger,
         message: (message.substring(0, 10) + (message.length > 10 ? "..." : ""))
     })
 }
-const sendSMS = async ({chatId,trigger, message}: { chatId: string,trigger:string, message:string }) => {
+const sendSMS = async ({name,trigger, message}: { name: string,trigger:string, message:string }) => {
     await axios.post(`${process.env.SMS_GATEWAY}/send`, {
         to: process.env.PHONE_NUMBER,
-        message: `${chatId},${trigger},${message}`,
+        message: `${name},${trigger},${message}`,
         template_id: 'reminder',
         token: process.env.SMS_TOKEN
     })
