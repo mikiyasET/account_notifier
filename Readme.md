@@ -1,7 +1,8 @@
 # Telegram Message to SMS (Alert)
 
-This script will send sms message to your phone when a message from a selected chat is sent
+This script will send sms message to your phone when a message from a selected chat is sent using [Yegara Free SMS API Gateway](https://yegara.com/sms.php)
 
+to change the sms gateway to your preferred gateway you have to change the `sendSMS` function in `general.ts` file under the `src/utils` folder
 
 ## Installation
 
@@ -12,7 +13,7 @@ npm install
 ```
 
 ## Important
-
+If you don't what to login each time time you run the script **copy** the session string you see on your terminal after you login in for the first time and **paste** it to the `SessionString` object as the example below.
 ```javascript
 console.log(client.session.save()) // copy the output of this
 
