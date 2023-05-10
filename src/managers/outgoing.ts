@@ -18,20 +18,24 @@ const outgoingManager = async (data: sender) => {
             const command = messageArray[0].slice(1);
             const args = messageArray.slice(1);
             const who = await whois(message.peerId);
+            let commandFound = false;
             if (command === process.env.ALERT_COMMAND) {
                 await createAlert({
                     chatId: messageTo.toString(),
                     type: who.type,
                     trigger: args.join(" "),
                 })
+                commandFound = true;
             }else if (command === "stopalert") {
                 await pauseAlert({id: messageTo.toString()})
-
+                commandFound = true;
             }
-            if (who.type === chatType.user)
-                await deleteUserMessage(messageId);
-            else
-                await deleteChannelMessage(messageId, message.peerId);
+            if (commandFound) {
+                if (who.type === chatType.user)
+                    await deleteUserMessage(messageId);
+                else
+                    await deleteChannelMessage(messageId, message.peerId);
+            }
         }
     }
 }
