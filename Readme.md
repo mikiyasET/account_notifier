@@ -8,7 +8,7 @@ to change the sms gateway to your preferred gateway you have to change the `send
 
 Use the package manager [npm](https://www.npmjs.com/) to install the required packages.
 
-```javascript
+```bash
 npm install
 ```
 
@@ -24,11 +24,11 @@ const session = new StringSession("PASTE_THE_COPIED_SESSION_STRING_HERE");
 ## .env
 
 ```javascript
-PORT=3000
-ALERT_COMMAND=addalert
-SMS_GATEWAY=https://sms.yegara.com/api
-SMS_TOKEN=YEGARA_SMS_TOKEN
-PHONE_NUMBER=0912345678
+PORT="3000"
+ALERT_COMMAND="addalert"
+SMS_GATEWAY="https://sms.yegara.com/api"
+SMS_TOKEN="YEGARA_SMS_TOKEN"
+PHONE_NUMBER="0912345678"
 DATABASE_URL="postgresql://m2:randompassword@localhost:5432/telegram_notifier?schema=public"
 ```
 

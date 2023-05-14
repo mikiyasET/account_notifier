@@ -16,6 +16,7 @@ model alert {
   type      chatType
   trigger   String
   status    alertStatus @default(on)
+  count     Int         @default(0)
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
 }

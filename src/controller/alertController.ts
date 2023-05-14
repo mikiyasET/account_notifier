@@ -3,13 +3,11 @@ import {prisma} from "../client";
 import alertType from "../types/alert";
 
 class AlertController {
-
     static async create(data: Prisma.alertUncheckedCreateInput): Promise<alert> {
         return prisma.alert.create({
             data: data,
         });
     }
-
     static async update(id: number, data: Prisma.alertUncheckedUpdateInput): Promise<alert> {
         return prisma.alert.update({
             where: {
@@ -18,7 +16,6 @@ class AlertController {
             data: data,
         });
     }
-
     static async delete(id: number): Promise<alert> {
         return prisma.alert.delete({
             where: {
@@ -26,7 +23,6 @@ class AlertController {
             },
         });
     }
-
     static async get(id: number): Promise<alert | null> {
         return prisma.alert.findUnique({
             where: {
@@ -37,7 +33,6 @@ class AlertController {
     static async getAll(): Promise<alert[]> {
         return prisma.alert.findMany();
     }
-
     static async getByChatId(id: string): Promise<alert | null> {
         return prisma.alert.findUnique({
             where: {
@@ -45,7 +40,6 @@ class AlertController {
             },
         });
     }
-
     static async getOn(): Promise<alert[]> {
         return prisma.alert.findMany({
             where: {
@@ -114,7 +108,6 @@ class AlertController {
             }
         });
     }
-
     static async getChannel(): Promise<alert[]> {
         return prisma.alert.findMany({
             where: {
@@ -122,7 +115,6 @@ class AlertController {
             }
         });
     }
-
     static async getGroup(): Promise<alert[]> {
         return prisma.alert.findMany({
             where: {
@@ -130,7 +122,6 @@ class AlertController {
             }
         });
     }
-
     static async getBot(): Promise<alert[]> {
         return prisma.alert.findMany({
             where: {
@@ -138,11 +129,23 @@ class AlertController {
             }
         });
     }
-
     static async getUnknown(): Promise<alert[]> {
         return prisma.alert.findMany({
             where: {
                 type: chatType.unknown
+            }
+        });
+    }
+
+    static async alertSent(id: number): Promise<alert> {
+        return prisma.alert.update({
+            where: {
+                id: id,
+            },
+            data: {
+                count: {
+                    increment: 1,
+                }
             }
         });
     }
